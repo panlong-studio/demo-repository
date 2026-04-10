@@ -1,6 +1,6 @@
 #include <my_header.h>
 
-/*Usage: */
+/*Usage: main changed */
 int main(int argc,char *argv[])
 {
     printf("Hello world\n");
