@@ -1,4 +1,51 @@
-# Welcome to your organization's demo respository
-This code repository (or "repo") is designed to demonstrate the best GitHub has to offer with the least amount of noise.
+# ==========================================
+# 🚀 团队 Git 开发标准化工作流
+# ==========================================
+>>>>>>> main
 
-The repo includes an `index.html` file (so it can render a web page), two GitHub Actions workflows, and a CSS stylesheet dependency.
+# 1. 开启新任务 (每天开始写代码前)
+# ------------------------------------------
+#   同步长期的个人分支
+#   demo仓库中长期维护个人分支
+#   后期项目阶段 每个人开发功能时新建功能分支 不再长期维护个人分支
+# ------------------------------------------
+git checkout main             # 先去主分支
+git pull origin main          # 拉取远程最新进展
+git checkout <你的长期分支名>    # 回到你自己的老分支
+git merge main                # 把主分支的新进展合进来
+
+
+# 2. 开发与本地提交
+# ------------------------------------------
+# ... 编写你的代码 ...
+git add .                     # 将改动放入暂存区
+git commit -m "feat: 描述信息" # 提交到本地仓库 (建议 commit 信息清晰)
+
+
+# 3. 保持分支同步 (防止与他人冲突)
+# ------------------------------------------
+# 开发中或准备提交 PR 前，建议将主分支最新的改动同步过来
+git fetch origin              # 抓取远程最新状态
+git rebase origin/main        # 以变基方式同步主干历史 (保持历史线性)
+
+
+# 4. 推送并申请合并
+# ------------------------------------------
+git push origin <你的分支名>    # 将本地分支推送到 GitHub
+# 去 GitHub 网页端点击 "Compare & pull request" 发起合并申请
+
+
+# 5. 冲突处理 (如果 rebase 过程中报错)
+# ------------------------------------------
+# 1. 手动打开冲突文件，删除 <<<< >>>> 符号，保留正确代码
+# 2. git add <冲突文件名>
+# 3. git rebase --continue
+# 4. 如果彻底搞乱了，想回到 rebase 前：git rebase --abort
+
+
+# ==========================================
+# ⚠️ 禁忌事项：
+# 1. 严禁在主分支 (main) 直接执行 git push
+# 2. 严禁在主分支执行 git push --force 
+# 3. 敏感信息 (密码/Key) 严禁上传
+# ==========================================
