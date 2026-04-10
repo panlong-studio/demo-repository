@@ -3,7 +3,7 @@
 /*Usage: main changed */
 int main(int argc,char *argv[])
 {
-    printf("change in linux vm\n");
+    printf("change in sameline in main\n");
     return 0;
 }
 
